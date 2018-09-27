@@ -4,6 +4,7 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from users.models import User
 from django.contrib.auth import get_user_model
+from django.utils.translation import ugettext_lazy as _
 
 UserModel = get_user_model()
 
