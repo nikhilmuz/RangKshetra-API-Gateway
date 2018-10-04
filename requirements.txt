@@ -1,5 +1,6 @@
 django
 django-rest-framework
+Pillow
 boto3
 mysqlclient
 django-cors-headers
