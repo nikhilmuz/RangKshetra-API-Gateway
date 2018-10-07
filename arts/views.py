@@ -34,6 +34,15 @@ class UploadView(APIView):
             return Response(upload_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class LikeView(APIView):
+    permission_classes = ()
+    def post(self, request, *args, **kwargs):
+        imageObject = Images.objects.get(id=request.POST['id'])
+        previous_like = imageObject.likes
+        imageObject.likes = previous_like+1;
+        imageObject.save()
+        return Response({'status': 'Liked'}, status=status.HTTP_200_OK)
+
 class DeleteView(APIView):
     def post(self, request, *args, **kwargs):
         imageObject = Images.objects.get(id=request.POST['id'])
