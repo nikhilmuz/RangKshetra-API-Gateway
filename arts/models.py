@@ -9,4 +9,5 @@ class Images(models.Model):
   art = models.FilePathField()
   caption = models.CharField(max_length=20)
   timestamp = models.DateTimeField(auto_now_add=True)
+  likes = models.IntegerField(default=0)
   uploader = models.ForeignKey(settings.AUTH_USER_MODEL,related_name='arts',on_delete=models.CASCADE)
