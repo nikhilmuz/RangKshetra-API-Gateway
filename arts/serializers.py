@@ -18,7 +18,7 @@ class FeedSerializer(serializers.ModelSerializer):
     art = serializers.URLField(max_length=200, min_length=None, allow_blank=False)
     class Meta():
         model = Images
-        fields = ('id', 'art', 'caption', 'timestamp', 'uploader')
+        fields = ('id', 'art', 'caption', 'timestamp', 'likes', 'uploader')
 
     def create(self, validated_data):
         validated_data['art'] = ARTS_URL_ROOT+validated_data['art']
