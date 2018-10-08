@@ -39,9 +39,10 @@ class LikeView(APIView):
     def post(self, request, *args, **kwargs):
         imageObject = Images.objects.get(id=request.POST['id'])
         previous_like = imageObject.likes
-        imageObject.likes = previous_like+1;
+        new_like = previous_like+1
+        imageObject.likes = new_like
         imageObject.save()
-        return Response({'status': 'Liked'}, status=status.HTTP_200_OK)
+        return Response({'status': 'Liked', 'likes': new_like}, status=status.HTTP_200_OK)
 
 class DeleteView(APIView):
     def post(self, request, *args, **kwargs):
